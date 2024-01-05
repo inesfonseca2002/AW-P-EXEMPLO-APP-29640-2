@@ -1,10 +1,10 @@
 import axios from "axios";
 
-const API_URL = "https://aw-p-exemplo-1778.vercel.app/api/v2/students/";
+const API_URL = "http://localhost:4242/api/auth/";
 
 axios.interceptors.request.use(
-config => {
-    config.headers['Authorization'] = `Bearer ${localStorage.getItem('token')}`;
+    config => {
+        config.headers['Authorization'] = `Bearer ${localStorage.getItem('token')}`;
         return config;
     },
     error => {
@@ -13,41 +13,41 @@ config => {
 );
 
 const getAll = () => {
-return axios.get(API_URL);
+    return axios.get(API_URL);
 };
 
-const getById = (number) => {
-return axios.get(API_URL + number);
+const getById = (id) => {
+    return axios.get(API_URL + id);
 };
 
-const createORupdate = (id, number, name, city, birthday) => {
-if(id == null){
-    return create(number, name, city, birthday);
-}
-else {
-    return update(id, number, name, city, birthday);
-}
+const createORupdate = (idprojeto, nome, notas, estado, datainicio, datafim, idcat) => {
+    if (id == null) {
+        return create(nome, notas, estado, datainicio, datafim, idcat);
+    }
+    else {
+        return update(idprojeto, nome, notas, estado, datainicio, datafim, idcat);
+    }
 };
 
-const create = (number, name, city, birthday) => {
-return axios.post(API_URL + "create", { number, name, city, birthday });
+const create = ( nome, notas, estado, datainicio, datafim, idcat) => {
+    return axios.post(API_URL + "create", { nome, notas, estado, datainicio, datafim, idcat });
 };
 
-const update = (id, number, name, city, birthday) => {
-return axios.put(API_URL + "update", { id, number, name, city, birthday });
+const update = (idprojeto, nome, notas, estado, datainicio, datafim, idcat) => {
+    return axios.put(API_URL + "update", {idprojeto, nome, notas, estado, datainicio, datafim, idcat });
 };
 
-const deleteUser = (number) => {
-return axios.delete(API_URL + "delete/" + number);
+const deleteUser = (idprojeto) => {
+    return axios.delete(API_URL + "delete/" + idprojeto);
 };
 
 const StudentsService = {
-getAll,
-getById,
-createORupdate,
-create,
-update,
-deleteUser
+    getAll,
+    getById,
+    createORupdate,
+    create,
+    update,
+    deleteUser
 }
 
 export default StudentsService;

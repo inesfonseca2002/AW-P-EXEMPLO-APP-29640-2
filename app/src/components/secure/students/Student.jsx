@@ -13,10 +13,13 @@ const Student = () => {
 
     const params = useParams();
     const [id, setId] = useState(null);
-    const [number, setNumber] = useState("");
-    const [name, setName] = useState("");
-    const [city, setCity] = useState("");
-    const [birthday, setBirthday] = useState("");
+    const [nome, setNome] = useState("");
+    const [notas, setNotas] = useState("");
+    const [estado, setestedo] = useState("");
+    const [datainicio, setdainicio] = useState("");
+    const [datafim, setdatafim] = useState("");
+    const [idcat, setidcat] = useState("");
+
     const [successful, setSuccessful] = useState(null);
     const [message, setMessage] = useState("");
 
