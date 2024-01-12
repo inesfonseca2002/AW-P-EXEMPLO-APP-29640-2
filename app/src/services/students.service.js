@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:4242/api/auth/";
+const API_URL = "http://localhost:4242/api/projetos/";
 
 axios.interceptors.request.use(
     config => {
@@ -17,7 +17,7 @@ const getAll = () => {
 };
 
 const getById = (id) => {
-    return axios.get(API_URL + id);
+    return axios.get(API_URL + idprojeto);
 };
 
 const createORupdate = (idprojeto, nome, notas, estado, datainicio, datafim, idcat) => {

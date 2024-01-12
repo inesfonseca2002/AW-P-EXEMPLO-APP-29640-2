@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import projectsService from "../../../services/students.service";
+import categoriasService from "../../../services/catgorias.service";
 import { Link } from 'react-router-dom';
 
-const StudentsList = () => {
-    const [students, setStudents] = useState([]);
+const CategoriaList = () => {
+    const [categoria, setcategoria] = useState([]);
 
     useEffect(() => {
         async function fetchData() {
-            const data = await projectsService.getAll();
-            setStudents(data.data);
+            const data = await categoriasService.getAll();
+            setcategoria(data.data);
         }
 
         fetchData();
@@ -22,7 +22,7 @@ const StudentsList = () => {
                         Voltar
                     </Link>
 
-                    <Link to={"/student"} className="btn btn-success px-4 mx-2">
+                    <Link to={"/categoria"} className="btn btn-success px-4 mx-2">
                         Registar
                     </Link>
                 </div>
@@ -34,28 +34,17 @@ const StudentsList = () => {
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">Nome</th>
-                            <th scope="col">notas</th>
-                            <th scope="col">estado</th>
-                            <th scope="col">datainicio</th>
-                            <th scope="col">data fim</th>
-                            <th scope="col">idcat</th>
-                            <th scope="col"></th>
                         </tr>
                     </thead>
 
                     <tbody>
-                        {students.map((student, index) => (
-                            <tr key={student.id}>
+                        {categorias.map((categoria, index) => (
+                            <tr key={categoria.id}>
                                 <td >{index + 1}</td>
-                                <td>{student.nome}</td>
-                                <td>{student.notas}</td>
-                                <td>{student.estado}</td>
-                                <td>{student.datainicio}</td>
-                                <td>{student.datafim}</td>
-                                <td>{student.idcat}</td>
+                                <td>{categoria.nomecat}</td>
                                 <td>
                                     <div className="d-flex justify-content">
-                                        <Link to={`/student/${student.number}`} className='btn btn-primary me-2'>Editar</Link>
+                                        <Link to={`/categoria/${categoria.number}`} className='btn btn-primary me-2'>Editar</Link>
                                     </div>
                                 </td>
                             </tr>
@@ -67,4 +56,4 @@ const StudentsList = () => {
     );
 }
 
-export default StudentsList;
+export default CategoriaList;

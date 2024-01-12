@@ -20,8 +20,11 @@ const Dashboard = () => {
                     <div className="d-flex justify-content">
                         <button className="btn btn-danger btn-lg px-4" onClick={logOut}>Terminar sessão</button>
 
+                        <Link to={'/categ-list'} className="btn btn-info btn-lg px-4 mx-2">
+                            Categorias
+                        </Link>
                         <Link to={'/students-list'} className="btn btn-info btn-lg px-4 mx-2">
-                            Alunos
+                            projetos
                         </Link>
                     </div>
                 </div>

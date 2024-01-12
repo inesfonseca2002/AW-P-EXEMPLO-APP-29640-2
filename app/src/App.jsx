@@ -15,6 +15,8 @@ import Register from "./components/public/Register";
 import Dashboard from "./components/secure/Dashboard";
 import StudentsList from "./components/secure/students/StudentsList";
 import Student from "./components/secure/students/Student";
+//import CategoriaList from "./components/secure/categorias/categoriaslist";
+//import Categorias from "./components/secure/categorias/categoria";
 
 import Footer from "./components/shared/Footer";
 import Header from "./components/shared/Header";
@@ -27,9 +29,12 @@ return (
         <Routes>
         <Route element={<PrivateRoutes />}>
             <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/students-list" element={<StudentsList />} />
             <Route path="/student" element={<Student />} />
+            <Route path="/students-list" element={<StudentsList />} />
             <Route path="/student/:number" element={<Student />} />
+           
+            
+
             <Route path='*'element={<Navigate to="/dashboard" />} />
         </Route>
 

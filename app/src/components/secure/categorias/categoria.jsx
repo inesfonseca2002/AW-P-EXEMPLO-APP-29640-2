@@ -5,20 +5,16 @@ import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
 import { Link } from "react-router-dom";
 
-import StudentsService from "../../../services/students.service";
+import categoriaervice from "../../../services/catgorias.service";
 
-const Student = () => {
+const categorias = () => {
     const navigate = useNavigate();
 
 
     const params = useParams();
-    const [id, setId] = useState(null);
-    const [nome, setNome] = useState("");
-    const [notas, setNotas] = useState("");
-    const [estado, setestedo] = useState("");
-    const [datainicio, setdainicio] = useState("");
-    const [datafim, setdatafim] = useState("");
-    const [idcat, setidcat] = useState("");
+    const [iidcateg, setId] = useState(null);
+    const [nomecat, setNomecat] = useState("");
+    
 
     const [successful, setSuccessful] = useState(null);
     const [message, setMessage] = useState("");
@@ -29,15 +25,11 @@ const Student = () => {
         }
 
         async function fetchData() {
-            const response = await StudentsService.getById(params.number);
+            const response = await categoriaervice.getById(params.number);
 
             setId(response.data.id);
-            setNotas(response.data.notas);
-            setNome(response.data.nome);
-            setestedo(response.data.estado);
-            setdainicio(response.data.datainicio);
-            setdatafim(response.data.datafim);
-            setidcat(response.data.idcat);
+            setNomecat(response.data.name);
+            
         }
 
         fetchData();
@@ -56,18 +48,13 @@ const Student = () => {
         form.current.validateAll();
 
         if (checkBtn.current.context._errors.length === 0) {
-            StudentsService.createORupdate(id, nome, notas, estado, datainicio, datafim, idcat).then(
+            categoriaervice.createORupdate(idcateg,nomecat).then(
                 (response) => {
                     setMessage(response.data.message);
                     setSuccessful(true);
 
                     setId(response.data.id);
-                    setNotas(response.data.notas);
-                    setNome(response.data.nome);
-                    setestedo(response.data.estado);
-                    setdainicio(response.data.datainicio);
-                    setdatafim(response.data.datafim);
-            setidcat(response.data.idcat);
+                    setNomecat(response.data.name);
                 },
                 (error) => {
                     const resMessage =
@@ -87,7 +74,7 @@ const Student = () => {
     const handleDelete = (e) => {
         e.preventDefault();
 
-        StudentsService.deleteUser(number).then(
+        categoriaervice.deleteUser(number).then(
             (response) => {
                 navigate('/students-list');
             },
@@ -139,71 +126,12 @@ const Student = () => {
                                     <Input
                                         type="text"
                                         className="form-control"
-                                        name="nome"
-                                        value={nome}
-                                        onChange= {(e) => setNome(e.target.value)}
-                                        validations={[required, validLength]}
-                                    />
-                                </div>
-
-                                <div className="form-group">
-                                    <label>Nome</label>
-                                    <Input
-                                        type="text"
-                                        className="form-control"
-                                        name="notas"
-                                        value={notas}
-                                        onChange={(e) => setNotas(e.target.value)}
+                                        name="nome categorua"
+                                        value={nomecat}
+                                        onChange= {(e) => setNomecat(e.target.value)}
                                         validations={[required]}
                                     />
                                 </div>
-
-                                <div className="form-group">
-                                    <label>Cidade</label>
-                                    <Input
-                                        type="text"
-                                        className="form-control"
-                                        name="estado"
-                                        value={estado}
-                                        onChange={(e) => setestedo(e.target.value)}
-                                        validations={[required, validLength]}
-                                    />
-                                </div>
-
-                                <div className="form-group">
-                                    <label>Aniversário</label>
-                                    <Input
-                                        type="text"
-                                        className="form-control"
-                                        name="birthday"
-                                        value={datainicio}
-                                        onChange={(e) => setdainicio(e.target.value)}
-                                        validations={[required]}
-                                    />
-                                </div>
-                                <div className="form-group">
-                                    <label>Aniversário</label>
-                                    <Input
-                                        type="text"
-                                        className="form-control"
-                                        name="birthday"
-                                        value={datafim}
-                                        onChange={(e) => setdatafim(e.target.value)}
-                                        validations={[required]}
-                                    />
-                                </div>
-                                <div className="form-group">
-                                    <label>Aniversário</label>
-                                    <Input
-                                        type="text"
-                                        className="form-control"
-                                        name="birthday"
-                                        value={idcat}
-                                        onChange={(e) => setidcat(e.target.value)}
-                                        validations={[required]}
-                                    />
-                                </div>
-
                                 <div className="form-group">
                                     <button className="btn btn-success mt-2">Registar</button>
 
@@ -245,4 +173,4 @@ const Student = () => {
     );
 }
 
-export default Student;
+export default categorias;
