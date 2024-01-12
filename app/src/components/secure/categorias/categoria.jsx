@@ -12,7 +12,7 @@ const categorias = () => {
 
 
     const params = useParams();
-    const [iidcateg, setId] = useState(null);
+    const [idcateg, setIdCateg] = useState(null);
     const [nomecat, setNomecat] = useState("");
     
 
@@ -20,15 +20,15 @@ const categorias = () => {
     const [message, setMessage] = useState("");
 
     useEffect(() => {
-        if (!params.number) {
+        if (!params.idcateg) {
             return;
         }
 
         async function fetchData() {
-            const response = await categoriaervice.getById(params.number);
+            const response = await categoriaervice.getById(params.idcateg);
 
-            setId(response.data.id);
-            setNomecat(response.data.name);
+            setIdCateg(response.data.idcateg);
+            setNomecat(response.data.nomecat);
             
         }
 
@@ -53,8 +53,8 @@ const categorias = () => {
                     setMessage(response.data.message);
                     setSuccessful(true);
 
-                    setId(response.data.id);
-                    setNomecat(response.data.name);
+                    setIdCateg(response.data.idcateg);
+                    setNomecat(response.data.nomecat);
                 },
                 (error) => {
                     const resMessage =
@@ -74,7 +74,7 @@ const categorias = () => {
     const handleDelete = (e) => {
         e.preventDefault();
 
-        categoriaervice.deleteUser(number).then(
+        categoriaervice.deleteUser(idcateg).then(
             (response) => {
                 navigate('/students-list');
             },
@@ -135,7 +135,7 @@ const categorias = () => {
                                 <div className="form-group">
                                     <button className="btn btn-success mt-2">Registar</button>
 
-                                    {id && (<button onClick={handleDelete} className="btn btn-danger mt-2 mx-2">
+                                    {idcateg && (<button onClick={handleDelete} className="btn btn-danger mt-2 mx-2">
                                         Eliminar
                                     </button>)}
 

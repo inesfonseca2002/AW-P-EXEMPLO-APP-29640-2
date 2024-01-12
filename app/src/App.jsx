@@ -31,11 +31,11 @@ return (
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/student" element={<Student />} />
             <Route path="/students-list" element={<StudentsList />} />
-            <Route path="/student/:number" element={<Student />} />
+            <Route path="/student/:idcateg" element={<Student />} />
            
             <Route path="/Categoria" element={<Categorias />} />
             <Route path="/categ-list" element={<CategoriaList/>} />
-            <Route path="/Categoria/:number" element={<Categorias />} /> 
+            <Route path="/Categoria/:idcateg" element={<Categorias />} /> 
 
             <Route path='*'element={<Navigate to="/dashboard" />} />
         </Route>

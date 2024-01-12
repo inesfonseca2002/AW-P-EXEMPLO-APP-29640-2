@@ -24,12 +24,12 @@ const Student = () => {
     const [message, setMessage] = useState("");
 
     useEffect(() => {
-        if (!params.number) {
+        if (!params.idprojeto) {
             return;
         }
 
         async function fetchData() {
-            const response = await StudentsService.getById(params.number);
+            const response = await StudentsService.getById(params.idprojeto);
 
             setId(response.data.id);
             setNotas(response.data.notas);
@@ -87,7 +87,7 @@ const Student = () => {
     const handleDelete = (e) => {
         e.preventDefault();
 
-        StudentsService.deleteUser(number).then(
+        StudentsService.deleteUser(idprojeto).then(
             (response) => {
                 navigate('/students-list');
             },
@@ -135,7 +135,7 @@ const Student = () => {
                                 <h1 className="h3 mb-3 fw-normal">Registar</h1>
 
                                 <div className="form-group">
-                                    <label>Número</label>
+                                    <label>nome</label>
                                     <Input
                                         type="text"
                                         className="form-control"
@@ -147,7 +147,7 @@ const Student = () => {
                                 </div>
 
                                 <div className="form-group">
-                                    <label>Nome</label>
+                                    <label>observaçoes</label>
                                     <Input
                                         type="text"
                                         className="form-control"
@@ -159,7 +159,7 @@ const Student = () => {
                                 </div>
 
                                 <div className="form-group">
-                                    <label>Cidade</label>
+                                    <label>estado do projeto</label>
                                     <Input
                                         type="text"
                                         className="form-control"
@@ -171,7 +171,7 @@ const Student = () => {
                                 </div>
 
                                 <div className="form-group">
-                                    <label>Aniversário</label>
+                                    <label>data inicio</label>
                                     <Input
                                         type="text"
                                         className="form-control"
@@ -182,7 +182,7 @@ const Student = () => {
                                     />
                                 </div>
                                 <div className="form-group">
-                                    <label>Aniversário</label>
+                                    <label>data fim</label>
                                     <Input
                                         type="text"
                                         className="form-control"
@@ -193,7 +193,7 @@ const Student = () => {
                                     />
                                 </div>
                                 <div className="form-group">
-                                    <label>Aniversário</label>
+                                    <label>id categoria</label>
                                     <Input
                                         type="text"
                                         className="form-control"

@@ -55,7 +55,7 @@ const StudentsList = () => {
                                 <td>{student.idcat}</td>
                                 <td>
                                     <div className="d-flex justify-content">
-                                        <Link to={`/student/${student.number}`} className='btn btn-primary me-2'>Editar</Link>
+                                        <Link to={`/student/${student.idprojeto}`} className='btn btn-primary me-2'>Editar</Link>
                                     </div>
                                 </td>
                             </tr>
