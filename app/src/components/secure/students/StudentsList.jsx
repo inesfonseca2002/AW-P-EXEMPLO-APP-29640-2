@@ -3,12 +3,12 @@ import projectsService from "../../../services/students.service";
 import { Link } from 'react-router-dom';
 
 const StudentsList = () => {
-    const [students, setStudents] = useState([]);
+    const [students, setcategorias] = useState([]);
 
     useEffect(() => {
         async function fetchData() {
             const data = await projectsService.getAll();
-            setStudents(data.data);
+            setcategorias(data.data);
         }
 
         fetchData();

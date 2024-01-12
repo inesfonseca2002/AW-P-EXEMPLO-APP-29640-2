@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import categoriasService from "../../../services/catgorias.service";
+import projectsService from "../../../services/students.service";
 import { Link } from 'react-router-dom';
 
-const CategoriaList = () => {
-    const [categoria, setcategoria] = useState([]);
+const Categoriaslist = () => {
+    const [students, setStudents] = useState([]);
 
     useEffect(() => {
         async function fetchData() {
-            const data = await categoriasService.getAll();
-            setcategoria(data.data);
+            const data = await projectsService.getAll();
+            setStudents(data.data);
         }
 
         fetchData();
@@ -22,7 +22,7 @@ const CategoriaList = () => {
                         Voltar
                     </Link>
 
-                    <Link to={"/categoria"} className="btn btn-success px-4 mx-2">
+                    <Link to={"/student"} className="btn btn-success px-4 mx-2">
                         Registar
                     </Link>
                 </div>
@@ -38,13 +38,13 @@ const CategoriaList = () => {
                     </thead>
 
                     <tbody>
-                        {categorias.map((categoria, index) => (
-                            <tr key={categoria.id}>
+                        {students.map((student, index) => (
+                            <tr key={student.id}>
                                 <td >{index + 1}</td>
-                                <td>{categoria.nomecat}</td>
+                                <td>{student.nomecat}</td>
                                 <td>
                                     <div className="d-flex justify-content">
-                                        <Link to={`/categoria/${categoria.number}`} className='btn btn-primary me-2'>Editar</Link>
+                                        <Link to={`/student/${student.number}`} className='btn btn-primary me-2'>Editar</Link>
                                     </div>
                                 </td>
                             </tr>
@@ -56,4 +56,4 @@ const CategoriaList = () => {
     );
 }
 
-export default CategoriaList;
+export default Categoriaslist;
