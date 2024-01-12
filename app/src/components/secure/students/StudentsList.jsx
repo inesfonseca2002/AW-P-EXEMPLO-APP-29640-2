@@ -3,12 +3,12 @@ import projectsService from "../../../services/students.service";
 import { Link } from 'react-router-dom';
 
 const StudentsList = () => {
-    const [students, setcategorias] = useState([]);
+    const [students, setprojetos] = useState([]);
 
     useEffect(() => {
         async function fetchData() {
             const data = await projectsService.getAll();
-            setcategorias(data.data);
+            setprojetos(data.data);
         }
 
         fetchData();
@@ -32,9 +32,9 @@ const StudentsList = () => {
                 <table className="table table-dark table-hover">
                     <thead>
                         <tr>
-                            <th scope="col">#</th>
+                            <th scope="col">idprojeto</th>
                             <th scope="col">Nome</th>
-                            <th scope="col">notas</th>
+                            <th scope="col">observaçoes</th>
                             <th scope="col">estado</th>
                             <th scope="col">datainicio</th>
                             <th scope="col">data fim</th>
@@ -46,7 +46,7 @@ const StudentsList = () => {
                     <tbody>
                         {students.map((student, index) => (
                             <tr key={student.id}>
-                                <td >{index + 1}</td>
+                                <td >{student.idprojeto}</td>
                                 <td>{student.nome}</td>
                                 <td>{student.notas}</td>
                                 <td>{student.estado}</td>

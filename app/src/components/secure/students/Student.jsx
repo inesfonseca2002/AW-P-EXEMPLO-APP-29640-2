@@ -12,7 +12,7 @@ const Student = () => {
 
 
     const params = useParams();
-    const [id, setId] = useState(null);
+    const [idprojeto, setidprojeto] = useState(null);
     const [nome, setNome] = useState("");
     const [notas, setNotas] = useState("");
     const [estado, setestedo] = useState("");
@@ -31,7 +31,7 @@ const Student = () => {
         async function fetchData() {
             const response = await StudentsService.getById(params.idprojeto);
 
-            setId(response.data.id);
+            setidprojeto(response.data.idprojeto);
             setNotas(response.data.notas);
             setNome(response.data.nome);
             setestedo(response.data.estado);
@@ -56,12 +56,12 @@ const Student = () => {
         form.current.validateAll();
 
         if (checkBtn.current.context._errors.length === 0) {
-            StudentsService.createORupdate(id, nome, notas, estado, datainicio, datafim, idcat).then(
+            StudentsService.createORupdate(idprojeto, nome, notas, estado, datainicio, datafim, idcat).then(
                 (response) => {
                     setMessage(response.data.message);
                     setSuccessful(true);
 
-                    setId(response.data.id);
+                    setidprojeto(response.data.idprojeto);
                     setNotas(response.data.notas);
                     setNome(response.data.nome);
                     setestedo(response.data.estado);
@@ -175,7 +175,7 @@ const Student = () => {
                                     <Input
                                         type="text"
                                         className="form-control"
-                                        name="birthday"
+                                        name="datainicio"
                                         value={datainicio}
                                         onChange={(e) => setdainicio(e.target.value)}
                                         validations={[required]}
@@ -186,7 +186,7 @@ const Student = () => {
                                     <Input
                                         type="text"
                                         className="form-control"
-                                        name="birthday"
+                                        name="datafim"
                                         value={datafim}
                                         onChange={(e) => setdatafim(e.target.value)}
                                         validations={[required]}
@@ -197,7 +197,7 @@ const Student = () => {
                                     <Input
                                         type="text"
                                         className="form-control"
-                                        name="birthday"
+                                        name="idcat"
                                         value={idcat}
                                         onChange={(e) => setidcat(e.target.value)}
                                         validations={[required]}
@@ -207,7 +207,7 @@ const Student = () => {
                                 <div className="form-group">
                                     <button className="btn btn-success mt-2">Registar</button>
 
-                                    {id && (<button onClick={handleDelete} className="btn btn-danger mt-2 mx-2">
+                                    {idprojeto && (<button onClick={handleDelete} className="btn btn-danger mt-2 mx-2">
                                         Eliminar
                                     </button>)}
 

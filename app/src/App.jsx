@@ -31,7 +31,7 @@ return (
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/student" element={<Student />} />
             <Route path="/students-list" element={<StudentsList />} />
-            <Route path="/student/:idcateg" element={<Student />} />
+            <Route path="/student/:idprojeto" element={<Student />} />
            
             <Route path="/Categoria" element={<Categorias />} />
             <Route path="/categ-list" element={<CategoriaList/>} />

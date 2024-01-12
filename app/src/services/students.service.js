@@ -16,12 +16,12 @@ const getAll = () => {
     return axios.get(API_URL);
 };
 
-const getById = (id) => {
+const getById = (idprojeto) => {
     return axios.get(API_URL + idprojeto);
 };
 
 const createORupdate = (idprojeto, nome, notas, estado, datainicio, datafim, idcat) => {
-    if (id == null) {
+    if (idprojeto == null) {
         return create(nome, notas, estado, datainicio, datafim, idcat);
     }
     else {
