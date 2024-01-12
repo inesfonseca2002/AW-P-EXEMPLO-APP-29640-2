@@ -20,12 +20,12 @@ const getById = (id) => {
     return axios.get(API_URL + id);
 };
 
-const createORupdate = (idutliPeg, nomeutliP) => {
+const createORupdate = (idutliPej, nomeutliP) => {
     if (id == null) {
         return create(nomeutliP);
     }
     else {
-        return update(idutliPeg,nomeutliP);
+        return update(idutliPej,nomeutliP);
     }
 };
 
@@ -34,14 +34,14 @@ const create = ( nomeutliP) => {
 };
 
 const update = (nomeutliP) => {
-    return axios.put(API_URL + "update", {nomeutliP });
+    return axios.put(API_URL + "update", { nomeutliP });
 };
 
-const deleteUser = (idutliPeg) => {
-    return axios.delete(API_URL + "delete/" + idutliPeg);
+const deleteUser = (idutliPej) => {
+    return axios.delete(API_URL + "delete/" + idutliPej);
 };
 
-const utilizadorProgetoService = {
+const utilizadorProjetoService = {
     getAll,
     getById,
     createORupdate,
@@ -50,4 +50,4 @@ const utilizadorProgetoService = {
     deleteUser
 }
 
-export default utilizadorProgetoService;
+export default utilizadorProjetoService;
