@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import projectsService from "../../../services/students.service";
+import projectsService from "../../../services/catgorias.service";
 import { Link } from 'react-router-dom';
 
 const Categoriaslist = () => {
@@ -34,17 +34,18 @@ const Categoriaslist = () => {
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">Nome</th>
+                            <th scope="col"></th>
                         </tr>
                     </thead>
 
                     <tbody>
                         {students.map((student, index) => (
                             <tr key={student.id}>
-                                <td >{index + 1}</td>
+                                <td >{student.idcateg}</td>
                                 <td>{student.nomecat}</td>
                                 <td>
                                     <div className="d-flex justify-content">
-                                        <Link to={`/student/${student.number}`} className='btn btn-primary me-2'>Editar</Link>
+                                        <Link to={`/categoria/${student.idcateg}`} className='btn btn-primary me-2'>Editar</Link>
                                     </div>
                                 </td>
                             </tr>

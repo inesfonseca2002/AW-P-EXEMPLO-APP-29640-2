@@ -21,7 +21,7 @@ const getById = (id) => {
 };
 
 const createORupdate = (idcateg,nomecat) => {
-    if (id == null) {
+    if (idcateg == null) {
         return create(nomecat);
     }
     else {
@@ -33,8 +33,8 @@ const create = ( nomecat) => {
     return axios.post(API_URL + "create", { nomecat });
 };
 
-const update = (nomecat) => {
-    return axios.put(API_URL + "update", {nomecat });
+const update = (idcateg, nomecat) => {
+    return axios.put(API_URL + "update", {idcateg, nomecat });
 };
 
 const deleteUser = (idcateg) => {
