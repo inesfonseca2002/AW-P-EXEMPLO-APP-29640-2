@@ -129,7 +129,7 @@ const Student = () => {
     return (
         <main>
             <section>
-                <div className="p-5 mb-4 bg-body-tertiary rounded-3">
+                <div className="p-5 mb-4 bg-body-tertiary rounded-3"  >
                     <div className="container-fluid py-5">
                         <Form onSubmit={handleRegister} ref={form} className="col-4">
                             <div>
