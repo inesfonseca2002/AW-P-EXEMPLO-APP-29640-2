@@ -32,8 +32,9 @@ const Student = () => {
             const response = await StudentsService.getById(params.idprojeto);
 
             setidprojeto(response.data.idprojeto);
-            setNotas(response.data.notas);
             setNome(response.data.nome);
+            setNotas(response.data.notas);
+
             setestedo(response.data.estado);
             setdainicio(response.data.datainicio);
             setdatafim(response.data.datafim);
@@ -62,8 +63,8 @@ const Student = () => {
                     setSuccessful(true);
 
                     setidprojeto(response.data.idprojeto);
-                    setNotas(response.data.notas);
                     setNome(response.data.nome);
+                    setNotas(response.data.notas);
                     setestedo(response.data.estado);
                     setdainicio(response.data.datainicio);
                     setdatafim(response.data.datafim);

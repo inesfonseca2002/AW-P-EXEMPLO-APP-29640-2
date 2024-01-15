@@ -15,8 +15,8 @@ const Dashboard = () => {
         <main>
             <div className="p-1 mb-4 bg-body-tertiary rounded-3">
                 <div className="container-fluid py-5">
-                    <h1 className="display-5 fw-bold">Hello {currentUser}</h1>
-                    <p className="col-md-8 fs-4">Ready for today?</p>
+                    <h1 className="display-5 fw-bold">ola {currentUser}</h1>
+                    <p className="col-md-8 fs-4">como estar hoje?</p>
                     <div className="d-flex justify-content">
                         <button className="btn btn-danger btn-lg px-4" onClick={logOut}>Terminar sessão</button>
 

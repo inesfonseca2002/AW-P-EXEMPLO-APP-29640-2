@@ -122,7 +122,7 @@ const categorias = () => {
                                 <h1 className="h3 mb-3 fw-normal">Registar</h1>
 
                                 <div className="form-group">
-                                    <label>Número</label>
+                                    <label>nome categoria</label>
                                     <Input
                                         type="text"
                                         className="form-control"
@@ -139,7 +139,7 @@ const categorias = () => {
                                         Eliminar
                                     </button>)}
 
-                                    <Link to={"/students-list"} className="btn btn-secondary mt-2 mx-2">
+                                    <Link to={"/categ-list"} className="btn btn-secondary mt-2 mx-2">
                                         Voltar
                                     </Link>
                                 </div>

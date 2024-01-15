@@ -3,7 +3,7 @@ import projectsService from "../../../services/catgorias.service";
 import { Link } from 'react-router-dom';
 
 const Categoriaslist = () => {
-    const [students, setStudents] = useState([]);
+    const [categorias, setStudents] = useState([]);
 
     useEffect(() => {
         async function fetchData() {
@@ -22,7 +22,7 @@ const Categoriaslist = () => {
                         Voltar
                     </Link>
 
-                    <Link to={"/student"} className="btn btn-success px-4 mx-2">
+                    <Link to={"/Categoria"} className="btn btn-success px-4 mx-2">
                         Registar
                     </Link>
                 </div>
@@ -39,13 +39,13 @@ const Categoriaslist = () => {
                     </thead>
 
                     <tbody>
-                        {students.map((student, index) => (
-                            <tr key={student.id}>
-                                <td >{student.idcateg}</td>
-                                <td>{student.nomecat}</td>
+                        {categorias.map((categoria, index) => (
+                            <tr key={categoria.id}>
+                                <td >{categoria.idcateg}</td>
+                                <td>{categoria.nomecat}</td>
                                 <td>
                                     <div className="d-flex justify-content">
-                                        <Link to={`/categoria/${student.idcateg}`} className='btn btn-primary me-2'>Editar</Link>
+                                        <Link to={`/categoria/${categoria.idcateg}`} className='btn btn-primary me-2'>Editar</Link>
                                     </div>
                                 </td>
                             </tr>
