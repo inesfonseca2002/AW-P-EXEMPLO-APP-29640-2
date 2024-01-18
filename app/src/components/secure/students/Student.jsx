@@ -5,6 +5,7 @@ import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
 import { Link } from "react-router-dom";
 
+
 import StudentsService from "../../../services/students.service";
 
 const Student = () => {
@@ -185,7 +186,7 @@ const Student = () => {
                                 <div className="form-group">
                                     <label>data fim</label>
                                     <Input
-                                        type="text"
+                                        type="datetime"
                                         className="form-control"
                                         name="datafim"
                                         value={datafim}

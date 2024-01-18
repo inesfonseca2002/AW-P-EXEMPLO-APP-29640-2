@@ -31,10 +31,10 @@ const createORupdate = (idprojeto, nome, notas, estado, datainicio, datafim, idc
 
 
 const create = ( nome, notas, estado, datainicio, datafim, idcat) => {
-    return axios.post(API_URL + "create", { nome, notas, estado, datainicio, datafim, idcat  });
+    return axios.post(API_URL + "create", { nome, notas, estado, datainicio, datafim,  idcat: Number(idcat)  });
 };
 const update = (idprojeto, nome, notas, estado, datainicio, datafim, idcat) => {
-    return axios.put(API_URL + "update", {idprojeto, nome, notas, estado, datainicio, datafim, idcat });
+    return axios.put(API_URL + "update", {idprojeto, nome, notas, estado, datainicio, datafim, idcat : Number(idcat) });
 };
 
 const deleteUser = (idprojeto) => {
